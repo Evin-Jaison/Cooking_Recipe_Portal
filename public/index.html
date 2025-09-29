@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Kitchen Sketch - Your Digital Recipe Collection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Landing Page -->
+  <div id="landingPage" class="page active">
+    <div class="landing-container">
+      <div class="hero-card">
+        <h1 class="main-title">The Kitchen Sketch</h1>
+        <p class="hero-description">
+          Welcome to your digital recipe collection! Discover, create, and 
+          organize your favorite recipes in one beautiful place. Whether you're a 
+          seasoned chef or just starting your culinary journey, The Kitchen 
+          Sketch is your canvas for culinary creativity.
+        </p>
+        <p class="hero-tagline">
+          <em>Start sketching your next masterpiece in the kitchen.</em>
+        </p>
+        <div class="action-buttons">
+          <button class="primary-btn" onclick="showRecipes()">Browse Recipes</button>
+          <button class="secondary-btn" onclick="showAddRecipe()">Add Recipe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recipe Portal - Browse Recipes -->
+  <div id="browsePage" class="page">
+    <nav class="navigation">
+      <button class="nav-btn" onclick="showLanding()">← Back to Home</button>
+      <button class="nav-btn secondary" onclick="showAddRecipe()">+ Add Recipe</button>
+      <h1 class="page-title">🍳 Your Recipe Collection</h1>
+    </nav>
+
+    <div class="content-container">
+      <section id="recipesSection" class="recipe-section">
+        <div class="section-header">
+          <h2>All Recipes</h2>
+          <div class="search-container">
+            <div class="search-bar">
+              <input type="text" id="searchInput" placeholder="Search recipes..." class="search-input">
+              <button id="searchButton" class="search-btn">🔍</button>
+            </div>
+            <div class="filter-options">
+              <select id="categoryFilter" class="filter-select">
+                <option value="">All Categories</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Snack">Snack</option>
+              </select>
+              <select id="difficultyFilter" class="filter-select">
+                <option value="">All Difficulties</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+              <button id="clearFilters" class="clear-btn">Clear Filters</button>
+            </div>
+          </div>
+        </div>
+        <div id="searchResults" class="search-info"></div>
+        <div id="recipes" class="recipes-grid"></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Recipe Portal - Add Recipe -->
+  <div id="addPage" class="page">
+    <nav class="navigation">
+      <button class="nav-btn" onclick="showLanding()">← Back to Home</button>
+      <button class="nav-btn secondary" onclick="showRecipes()">📖 Browse Recipes</button>
+      <h1 class="page-title">🍳 Add New Recipe</h1>
+    </nav>
+
+    <div class="content-container">
+      <section id="addRecipeSection" class="recipe-section">
+        <h2>Add New Recipe</h2>
+        <form id="recipeForm" class="recipe-form">
+          <div class="form-row">
+            <input type="text" id="title" placeholder="Recipe Title" required>
+            <input type="text" id="cooking_time" placeholder="Cooking Time (e.g., 30 mins)">
+          </div>
+          <div class="form-row">
+            <select id="category">
+              <option value="">--Select Category--</option>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Dinner">Dinner</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Snack">Snack</option>
+            </select>
+            <select id="difficulty">
+              <option value="">--Select Difficulty--</option>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+          </div>
+          <textarea id="ingredients" placeholder="Ingredients (separate each ingredient with a new line)"></textarea>
+          <textarea id="instructions" placeholder="Instructions (step by step)"></textarea>
+          <button type="submit" class="submit-btn">Add Recipe</button>
+        </form>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
